@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Template Looping : Accounts">
+        <div class="slds-var-m-around_medium">
+            
+            <template for:each={accounts} for:item="acc">
+<div key={acc.Name} class="slds-var-p-bottom_small">
+    <strong>{acc.Name}</strong><br/>
+    {acc.Type}, {acc.Industry}
+
+    </div>
+</template>
+
+           
+        </div>
+    </lightning-card>
+    <lightning-card title="Template Looping : Opportunities">
+        <div class="slds-var-m-around_medium">
+            
+            <template for:each={opportunities} for:item="opp">
+                <div key={opp.Name} class="slds-var-p-bottom_small">
+                    <strong>{opp.Name}</strong><br/>
+                    {opp.Amount}, {opp.Stage}, {opp.Type}
+                
+                    </div>
+                            </template>
+
+           
+        </div>
+    </lightning-card>
+
+</template>

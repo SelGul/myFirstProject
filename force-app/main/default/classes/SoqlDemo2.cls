@@ -12,16 +12,17 @@ public class SoqlDemo2 {
     }
 
     public static void soqlParentToChild_1() {
-        List<account> listAccOpp  = [select id, name, annualrevenue,(select name, amount from Opportunities where stagename = 'Closed Won') from account where type = 'Customer - Direct'];
-        for (account eachAcc: listAccOpp) {
-            
-            system.debug('ACCOUNT name is ' + eachAcc.name + ', annual revenue is ' + eachAcc.annualRevenue);
-
+        //query account record, print annual revenue. Type = 'Customer - Direct'
+        //outer query or main query is for account object. 
+        //Inner query is opportunity
+        List<account> listAccOpp = [select id, name, annualrevenue,
+                                (select name, amount from Opportunities where stagename = 'Closed Won') 
+                                from account where type = 'Customer - Direct'];
+        for (account eachAcc : listAccOpp) {
+            system.debug('account name is ' + eachAcc.Name + ', annual revenue is ' + eachAcc.AnnualRevenue);
             List<Opportunity> listOpp = eachAcc.Opportunities;
-
-            for (Opportunity eachOpp : ListOpp) {
-                
-                system.debug('opp name is ' + eachOpp.name + ', amount is ' + eachOpp.Amount);
+            for (opportunity eachOpp : listOpp) {
+                system.debug('--- opp name is ' + eachOpp.Name + ', amount is ' + eachOpp.Amount);
             }
         }
     }

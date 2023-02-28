@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Famous People: Contacts">
+        <div class="slds-var-m-around_medium">
+            
+            <template for:each={contacts} for:item="contact">
+<div key={contact.name} class="slds-var-p-bottom_small">
+    <strong>{contact.name}</strong>
+    <p>{contact.title}, {contact.company}</p>
+<p>{contact.stay}</p>
+    </div>
+</template>    
+     </div>
+    </lightning-card>
+   
+</template>
