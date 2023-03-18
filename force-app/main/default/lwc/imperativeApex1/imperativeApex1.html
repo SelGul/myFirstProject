@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Imperative Apex - Top Lost Opps"
+    icon-name="standart:opportunity">
+        <div class="slds-var-m-around_medium">
+           <lightning-button
+            label="Get Lost Opps"
+            variant="brand"
+            onclick={fetchLostOpps}>
+           </lightning-button>
+           <div class="slds-var-m-around_small">
+            <template if:true={opps}>
+                <lightning-datatable
+                key-field="Id"
+                data={opps}
+                columns={columns}>
+            </lightning-datatable>
+
+
+            </template>
+            <template if:true={error}>
+                
+            </template>
+           </div>
+        </div>
+    </lightning-card>
+</template>
